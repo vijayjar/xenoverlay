@@ -14,7 +14,7 @@ class MyFrame1 ( wx.Frame ):
 
     def __init__( self ):
         wx.Frame.__init__ ( self, None, title = u"Latency", pos = wx.Point( 0,100 ), size = wx.Size( 220 , 65 ), 
-        style = wx.FRAME_SHAPED | wx.STAY_ON_TOP | wx.BORDER_NONE | wx.CLIP_CHILDREN
+        style = wx.FRAME_SHAPED | wx.STAY_ON_TOP | wx.BORDER_NONE | wx.CLIP_CHILDREN 
         )
         self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
         self.Centre( wx.BOTH )
@@ -97,18 +97,18 @@ class MyFrame1 ( wx.Frame ):
         google_latency = measure_latency(host='www.google.com')
         if google_latency[0] == None :
             status_string = "Internet Disconnected"
-            self.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
+            #self.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
         else :
             game_latency = measure_latency(host='74.208.168.94')
             if game_latency[0] == None :
                 status_string ="Internet : " + str(int(google_latency[0])) + " ms\nGame Server Not Reachable"
-                self.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
+                #self.SetBackgroundColour( wx.Colour( 255, 128, 128 ) )
             else :    
                 latency_value = str(int(game_latency[0]))
                 status_string = "Internet : " + str(int(google_latency[0])) + " ms\nGame : " + latency_value + " ms"
-                self.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOWFRAME ) )
+                #self.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_WINDOWFRAME ) )
         self.Latency.SetLabel(status_string)
-        
+       
         #return(status_string)
 
     def OnExit(self, evt): 
